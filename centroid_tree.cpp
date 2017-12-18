@@ -1,3 +1,8 @@
+vector<int> graph[3*Max];
+int size[3*Max];
+bool usable[3*Max];
+int centroid_parent[3*Max];
+
 void calc_size(int i,int pa)
 {
   size[i]=1;
