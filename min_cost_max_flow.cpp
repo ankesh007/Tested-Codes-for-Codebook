@@ -1,56 +1,103 @@
-#include<iostream>
-#include<cstdio>
-#include<queue>
-#include<cstring>
-using namespace std;
-const int N=110,M=N*N;
-int n,m,dv[N],uv[N],s,t;
-int tot=1,fi[N],a[M],ne[M],cu[M],co[M];
-inline void adde(int x,int y,int cup,int cost){
-	a[++tot]=y;cu[tot]=cup;co[tot]=cost;ne[tot]=fi[x];fi[x]=tot;
-	a[++tot]=x;cu[tot]=0;co[tot]=-cost;ne[tot]=fi[y];fi[y]=tot;
-}
-int min_cost,f[N],g[N];
-bool inq[N];
-queue<int> q;
-inline bool spfa(){
-	memset(f,0x3f,sizeof f);
-	f[s]=0;q.push(s);
-	while (!q.empty()){
-		int u=q.front();q.pop();inq[u]=0;
-		for (int i=fi[u];i;i=ne[i]) if (cu[i])
-			if (f[u]+co[i]<f[a[i]]){
-				f[a[i]]=f[u]+co[i];
-				g[a[i]]=i;
-				if (!inq[a[i]]) inq[a[i]]=1,q.push(a[i]);
-			}
-	}
-	if (f[t]==f[0]) return 0;
-	min_cost+=f[t];
-	int pos=t;
-	while (pos!=s){
-		cu[g[pos]]^=1;cu[g[pos]^1]^=1;
-		pos=a[g[pos]^1];
-	}
-	return 1;
-}
-int main(){
-	scanf("%d%d",&n,&m);
-	for (int i=1;i<=n;++i) dv[i]=1,uv[i]=n;
-	int d,x,y,z;
-	for (int i=1;i<=m;++i){
-		scanf("%d%d%d%d",&d,&x,&y,&z);
-		if (d==1) for (int j=x;j<=y;++j) dv[j]=max(dv[j],z);
-		else for (int j=x;j<=y;++j) uv[j]=min(uv[j],z);
-	}
-	s=2*n+1;t=2*n+2;
-	for (int i=1;i<=n;++i){
-		adde(s,i,1,0);
-		if (dv[i]>uv[i]) return puts("-1"),0;
-		for (int j=dv[i];j<=uv[i];++j) adde(i,j+n,1,0);
-	}
-	for (int i=n+1;i<=2*n;++i) for (int co=1;co<=2*n;co+=2) adde(i,t,1,co);
-	while (spfa());
-	printf("%d",min_cost);
-	return 0;
-}
+struct Edge {
+    int u, v;
+    long long cap, cost;
+
+    Edge(int _u, int _v, long long _cap, long long _cost) {
+        u = _u; v = _v; cap = _cap; cost = _cost;
+    }
+};
+
+struct MinimumCostMaximumFlow{
+    int n, s, t;
+    long long flow, cost;
+    vector<vector<int> > graph;
+    vector<Edge> e;
+    vector<long long> dist;
+    vector<int> parent;
+
+    MinimumCostMaximumFlow(int _n){
+        // 0-based indexing
+        n = _n;
+        graph.assign(n, vector<int> ());
+    }
+
+    void add(int u, int v, long long cap, long long cost, bool directed = true){
+        graph[u].push_back(e.size());
+        e.push_back(Edge(u, v, cap, cost));
+
+        graph[v].push_back(e.size());
+        e.push_back(Edge(v, u, 0, -cost));
+
+        if(!directed)
+            add(v, u, cap, cost, true);
+    }
+
+    pair<long long, long long> getMinCostFlow(int _s, int _t){
+        s = _s; t = _t;
+        flow = 0, cost = 0;
+
+        while(SPFA()){
+            flow += sendFlow(t, 1LL<<62);
+        }
+
+        return make_pair(flow, cost);
+    }
+
+    // Not sure about negative cycle
+    bool SPFA(){
+        parent.assign(n, -1);
+        dist.assign(n, 1LL<<62);        dist[s] = 0;
+        vector<int> queuetime(n, 0);    queuetime[s] = 1;
+        vector<bool> inqueue(n, 0);     inqueue[s] = true;
+        queue<int> q;                   q.push(s);
+        bool negativecycle = false;
+
+
+        while(!q.empty() && !negativecycle){
+            int u = q.front(); q.pop(); inqueue[u] = false;
+
+            for(int i = 0; i < graph[u].size(); i++){
+                int eIdx = graph[u][i];
+                int v = e[eIdx].v, w = e[eIdx].cost, cap = e[eIdx].cap;
+
+                if(dist[u] + w < dist[v] && cap > 0){
+                    dist[v] = dist[u] + w;
+                    parent[v] = eIdx;
+
+                    if(!inqueue[v]){
+                        q.push(v);
+                        queuetime[v]++;
+                        inqueue[v] = true;
+
+                        if(queuetime[v] == n+2){
+                            negativecycle = true;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        return dist[t] != (1LL<<62);
+    }
+
+    long long sendFlow(int v, long long curFlow){
+        if(parent[v] == -1)
+            return curFlow;
+        int eIdx = parent[v];
+        int u = e[eIdx].u, w = e[eIdx].cost;
+
+        long long f = sendFlow(u, min(curFlow, e[eIdx].cap));
+
+        cost += f*w;
+        e[eIdx].cap -= f;
+        e[eIdx^1].cap += f;
+
+        return f;
+    }
+};
+int source=2*n+1;
+int sink=2*n+2;
+MinimumCostMaximumFlow mcmf(id+10);
+mcmf.add(source,i,1,k);
+cout<<mcmf.getMinCostFlow(source,sink).second<<endl;
