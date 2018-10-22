@@ -1,4 +1,4 @@
-int pa[21][3*Max], level[3*Max]; 
+int pa[21][3*N], level[3*N]; 
 int lca(int u,int v){
 	if(level[u]>level[v])return lca(v,u);
 	for(long i=19;i>=0 && level[v]!=level[u];i--){

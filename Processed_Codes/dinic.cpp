@@ -3,13 +3,15 @@ const int E = N*1005 ;
 int t, n, m;
 int par[N];
 /* START DINIC */
+/* EV^2 */
+
 int nodes, edges;
 int eu[E], ev[E], ef[E], ec[E];
 int dist[N], q[N], ed[N];
 vector<int> adj[N];
 void init(int n) {
-	::nodes = n;
-	::edges = 0;
+	nodes = n;
+	edges = 0;
 	for (int i = 0; i < nodes; ++i)
 		adj[i].clear();
 }

@@ -1,6 +1,6 @@
 int chainNo[Max];
 int pos_in_chain[Max];
-int parent_in_chain[Max];
+int chain_root[Max];
 int parent[Max];
 int chain_count=0;
 int total_in_chain[Max];
@@ -45,7 +45,7 @@ void simple_dfs(int i)
 void dfs(int i)
 {
     if(pos_count==0)
-        parent_in_chain[chain_count]=i;
+        chain_root[chain_count]=i;
  
     chainNo[i]=chain_count;
     pos_in_chain[i]=++pos_count;
@@ -126,6 +126,6 @@ void query(int i)
  
     qs=1;qe=pos_in_chain[i];chain=chainNo[i];
     query_tree(1,total_in_chain[chainNo[i]],1);
-    i=parent[parent_in_chain[chainNo[i]]];
+    i=parent[chain_root[chainNo[i]]];
     query(i);
 }

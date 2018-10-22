@@ -2,7 +2,6 @@
 
 double INF = 1e100;
 double EPS = 1e-12;
-
 struct PT { 
   double x, y; 
   PT() {}
@@ -13,27 +12,23 @@ struct PT {
   PT operator * (double c)     const { return PT(x*c,   y*c  ); }
   PT operator / (double c)     const { return PT(x/c,   y/c  ); }
 };
-
 double dot(PT p, PT q)     { return p.x*q.x+p.y*q.y; }
 double dist2(PT p, PT q)   { return dot(p-q,p-q); }
 double cross(PT p, PT q)   { return p.x*q.y-p.y*q.x; }
 ostream &operator<<(ostream &os, const PT &p) {
   os << "(" << p.x << "," << p.y << ")"; 
 }
-
 // rotate a point CCW or CW around the origin
 PT RotateCCW90(PT p)   { return PT(-p.y,p.x); }
 PT RotateCW90(PT p)    { return PT(p.y,-p.x); }
 PT RotateCCW(PT p, double t) { 
   return PT(p.x*cos(t)-p.y*sin(t), p.x*sin(t)+p.y*cos(t)); 
 }
-
 // project point c onto line through a and b
 // assuming a != b
 PT ProjectPointLine(PT a, PT b, PT c) {
   return a + (b-a)*dot(c-a, b-a)/dot(b-a, b-a);
 }
-
 // project point c onto line segment through a and b
 // if the projection doesn't lie on the segment, returns closest vertex
 PT ProjectPointSegment(PT a, PT b, PT c) {
@@ -44,7 +39,6 @@ PT ProjectPointSegment(PT a, PT b, PT c) {
   if (r > 1) return b;
   return a + (b-a)*r;
 }
-
 // compute distance from c to segment between a and b
 double DistancePointSegment(PT a, PT b, PT c) {
   return sqrt(dist2(c, ProjectPointSegment(a, b, c)));
@@ -54,13 +48,11 @@ double DistancePointSegment(PT a, PT b, PT c) {
 bool LinesParallel(PT a, PT b, PT c, PT d) { 
   return fabs(cross(b-a, c-d)) < EPS; 
 }
-
 bool LinesCollinear(PT a, PT b, PT c, PT d) { 
   return LinesParallel(a, b, c, d)
       && fabs(cross(a-b, a-c)) < EPS
       && fabs(cross(c-d, c-a)) < EPS; 
 }
-
 // determine if line segment from a to b intersects with 
 // line segment from c to d
 bool SegmentsIntersect(PT a, PT b, PT c, PT d) {
@@ -75,7 +67,6 @@ bool SegmentsIntersect(PT a, PT b, PT c, PT d) {
   if (cross(a-c, d-c) * cross(b-c, d-c) > 0) return false;
   return true;
 }
-
 // compute intersection of line passing through a and b
 // with line passing through c and d, assuming that unique
 // intersection exists; for segment intersection, check if
@@ -90,14 +81,12 @@ PT ComputeLineIntersection(PT a, PT b, PT c, PT d) {
 bool OnSameSide(PT a, PT b, PT c, PT d) {
   return cross(c-a, c-b) * cross(d-a, d-b) > 0;
 }
-
 // compute center of circle given three points
 PT ComputeCircleCenter(PT a, PT b, PT c) {
   b=(a+b)/2;
   c=(a+c)/2;
   return ComputeLineIntersection(b, b+RotateCW90(a-b), c, c+RotateCW90(a-c));
 }
-
 // determine if point is in a possibly non-convex polygon (by William
 // Randolph Franklin); returns 1 for strictly interior points, 0 for
 // strictly exterior points, and 0 or 1 for the remaining points.
@@ -116,7 +105,6 @@ bool PointInPolygon(const vector<PT> &p, PT q) {
   }
   return c;
 }
-
 // determine if point is on the boundary of a polygon
 bool PointOnPolygon(const vector<PT> &p, PT q) {
   for (int i = 0; i < p.size(); i++)
@@ -124,7 +112,6 @@ bool PointOnPolygon(const vector<PT> &p, PT q) {
       return true;
     return false;
 }
-
 // compute intersection of line through points a and b with
 // circle centered at c with radius r > 0
 vector<PT> CircleLineIntersection(PT a, PT b, PT c, double r) {
@@ -141,7 +128,6 @@ vector<PT> CircleLineIntersection(PT a, PT b, PT c, double r) {
     ret.push_back(c+a+b*(-B-sqrt(D))/A);
   return ret;
 }
-
 // compute intersection of circle centered at a with radius r
 // with circle centered at b with radius R
 vector<PT> CircleCircleIntersection(PT a, PT b, double r, double R) {
@@ -156,7 +142,6 @@ vector<PT> CircleCircleIntersection(PT a, PT b, double r, double R) {
     ret.push_back(a+v*x - RotateCCW90(v)*y);
   return ret;
 }
-
 // This code computes the area or centroid of a (possibly nonconvex)
 // polygon, assuming that the coordinates are listed in a clockwise or
 // counterclockwise fashion.  Note that the centroid is often known as
@@ -169,11 +154,9 @@ double ComputeSignedArea(const vector<PT> &p) {
   }
   return area / 2.0;
 }
-
 double ComputeArea(const vector<PT> &p) {
   return fabs(ComputeSignedArea(p));
 }
-
 PT ComputeCentroid(const vector<PT> &p) {
   PT c(0,0);
   double scale = 6.0 * ComputeSignedArea(p);
@@ -183,7 +166,6 @@ PT ComputeCentroid(const vector<PT> &p) {
   }
   return c / scale;
 }
-
 // tests whether or not a given polygon (in CW or CCW order) is simple
 bool IsSimple(const vector<PT> &p) {
   for (int i = 0; i < p.size(); i++) {
