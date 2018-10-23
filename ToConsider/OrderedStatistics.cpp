@@ -47,3 +47,8 @@ ordered_set;
 //     cout<<X.order_of_key(4)<<endl;   // 2
 //     cout<<X.order_of_key(400)<<endl; // 5
 
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+template <typename T> using ordered_set =  tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
