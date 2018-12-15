@@ -36,3 +36,11 @@ public:
 	}
 };
 const ld FFT::PI = acos(-1.0);
+
+cA.resize(new_n,zero);
+fill(cA.begin(),cA.end(),zero);
+FFT::cfft(cA,0);
+for(int i=0;i<new_n;i++)
+	cA[i]=cA[i]*cB[i];
+for(int i=0;i<new_n;i++)	
+	cD[i]+=llround(cA[i].x);

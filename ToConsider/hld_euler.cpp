@@ -21,4 +21,4 @@ void dfs_hld(int v = 0)
     }
     out[v] = t;
 }
-Then you will have such array that subtree of  correspond to segment  and the path from  to the last vertex in ascending heavy path from  (which is ) will be  subsegment which gives you the opportunity to process queries on pathes and subtrees simultaneously in the same segment tree.
+Then you will have such array that subtree of node  correspond to segment  and the path from node  to the last vertex in ascending heavy path from  (which is ) will be  subsegment which gives you the opportunity to process queries on pathes and subtrees simultaneously in the same segment tree.

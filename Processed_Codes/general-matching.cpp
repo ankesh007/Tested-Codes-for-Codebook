@@ -96,10 +96,12 @@ void Solve()
 }
 
 // Call this after Solve(). Returns number of edges in matching (half the number of matched vertices)
-int Size()
+int get_match()
 {
   int Count = 0;
   for (int i = 1; i <= V; i++)
     if (Mate[i] > i) Count++;
   return Count;
 }
+
+
