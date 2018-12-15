@@ -1,0 +1,45 @@
+\contentsline {section}{\numberline {1}Format}{2}
+\contentsline {subsection}{\numberline {1.1}Format c++}{2}
+\contentsline {subsection}{\numberline {1.2}String Input c++}{2}
+\contentsline {section}{\numberline {2}Strings}{2}
+\contentsline {subsection}{\numberline {2.1}KMP}{2}
+\contentsline {subsection}{\numberline {2.2}AhoCohrasick}{3}
+\contentsline {subsection}{\numberline {2.3}Manacher}{3}
+\contentsline {subsection}{\numberline {2.4}Suffix\_Array}{3}
+\contentsline {subsection}{\numberline {2.5}Z algo}{4}
+\contentsline {subsection}{\numberline {2.6}Hashing}{4}
+\contentsline {section}{\numberline {3}Trees}{4}
+\contentsline {subsection}{\numberline {3.1}Centroid Tree}{4}
+\contentsline {subsection}{\numberline {3.2}Heavy Light Decomposition}{5}
+\contentsline {subsection}{\numberline {3.3}Heavy Light Trick}{6}
+\contentsline {subsection}{\numberline {3.4}LCA}{6}
+\contentsline {section}{\numberline {4}Graph and Matching, Flows}{7}
+\contentsline {subsection}{\numberline {4.1}Euler Walk}{7}
+\contentsline {subsection}{\numberline {4.2}Articulation Point Pseudo}{7}
+\contentsline {subsection}{\numberline {4.3}Ford Fulkerson Matching}{7}
+\contentsline {subsection}{\numberline {4.4}Dinic- Maximum Flow $O(EV^2)$ }{8}
+\contentsline {subsection}{\numberline {4.5}Minimum Cost Bipartite Matching $O(V^3)$ }{9}
+\contentsline {subsection}{\numberline {4.6}Minimum Cost Maximum Flow }{10}
+\contentsline {subsection}{\numberline {4.7}General Unweighted Maximum Matching (Edmonds' algorithm)}{11}
+\contentsline {subsection}{\numberline {4.8}K\"onig's Theorem (Text)}{12}
+\contentsline {subsection}{\numberline {4.9}Minimum Edge Cover (Text)}{12}
+\contentsline {section}{\numberline {5}Data Structures}{13}
+\contentsline {subsection}{\numberline {5.1}BIT- Range Update + Range Sum}{13}
+\contentsline {subsection}{\numberline {5.2}BIT- 2D}{13}
+\contentsline {subsection}{\numberline {5.3}Ordered Statistics}{14}
+\contentsline {subsection}{\numberline {5.4}Persistent Tree}{14}
+\contentsline {section}{\numberline {6}Math}{15}
+\contentsline {subsection}{\numberline {6.1}Convex Hull}{15}
+\contentsline {subsection}{\numberline {6.2}FFT}{15}
+\contentsline {subsection}{\numberline {6.3}FFT\_Complex}{16}
+\contentsline {subsection}{\numberline {6.4}Find Primitive Root }{16}
+\contentsline {subsection}{\numberline {6.5}Convex Hull Trick}{17}
+\contentsline {subsection}{\numberline {6.6}Miscellaneous Geometry}{17}
+\contentsline {subsection}{\numberline {6.7}Gaussian elimination for square matrices of full rank; finds inverses and determinants}{19}
+\contentsline {section}{\numberline {7}Number Theory Reference}{20}
+\contentsline {subsection}{\numberline {7.1}Modular arithmetic and linear Diophantine solver}{20}
+\contentsline {subsection}{\numberline {7.2}Polynomial Coefficients (Text)}{21}
+\contentsline {subsection}{\numberline {7.3}M\"obius Function (Text)}{21}
+\contentsline {subsection}{\numberline {7.4}Burnside's Lemma (Text)}{21}
+\contentsline {section}{\numberline {8}Miscellaneous}{21}
+\contentsline {subsection}{\numberline {8.1}2-SAT}{21}
