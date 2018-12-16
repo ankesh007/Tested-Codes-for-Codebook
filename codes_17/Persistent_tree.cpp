@@ -26,25 +26,10 @@ int query(node *lef,node *rig,int cc,int s,int e){
 }
 node *null=new node(0,NULL,NULL);
 node *root[100100];
-map<int,int> m;
-int mm[100100];
-int arr[100100];
-int main(){
-	ios::sync_with_stdio(false);cin.tie(0);
-	int n,mmm;cin>>n>>mmm;
-	null->l=null->r=null;
-	root[0]=null;
-	for(int i=1;i<=n;i++) cin>>arr[i],m[arr[i]]=1 ;
-	int maxy=-1;
-	for(auto itr:m){
-		m[itr.x]=++maxy;
-		mm[maxy]=itr.x;
-	}
-	for(int i=1;i<=n;i++)
-		root[i]=root[i-1]->inser(0,maxy,m[arr[i]]);
-	while(mmm-->0){
-		int i,j,k;cin>>i>>j>>k;
-		cout<<mm[query(root[i-1],root[j],k,0,maxy)]<<"\n";
-	}
-	return 0;
-}
+null->l=null->r=null;
+root[0]=null;
+for(int i=1;i<=n;i++)
+	root[i]=root[i-1]->inser(0,maxy,m[arr[i]]);
+while(mmm-->0){
+	int i,j,k;cin>>i>>j>>k;
+	cout<<mm[query(root[i-1],root[j],k,0,maxy)]<<"\n";

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  16 DEC 2018 02:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.12)  16 DEC 2018 12:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -312,35 +312,37 @@ LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <5.5> not available
 
 ) (./string_inp.cpp) (./KMP.cpp [2]) (./Aho_Cohrasick.cpp) (./Manacher.cpp)
 (./SuffixArray.cpp [3]) (./Z_algo.cpp) (./hash.cpp) (./centroid_tree.cpp
-[4]) (./heavy_light.cpp [5]) (./heavy_light_trick.cpp) (./lca.cpp [6])
+[4]) (./heavy_light.cpp [5]) (./heavy_light_trick.cpp) [6] (./lca.cpp)
 (./euler.cpp) (./Articulation_point.cpp) (./ford_fulkerson.cpp [7])
-(./Dinic.cpp [8]) (./min_cost_bipartite.cpp [9]) (./min_cost_max_flow.cpp
-[10]) (./general-matching.cpp [11]) [12] (./BIT-range.cpp) (./BIT_2D.cpp
-[13]) (./OrderedStatistics.cpp
+(./MaxBipartiteMatching.cpp [8]) (./Dinic.cpp) [9] (./min_cost_bipartite.cpp)
+[10] (./min_cost_max_flow.cpp) [11] (./PushRelabel.cpp [12])
+(./general-matching.cpp [13]) (./BIT-range.cpp [14]) (./BIT_2D.cpp)
+(./OrderedStatistics.cpp [15]
 Missing character: There is no â in font cmtt10!
 Missing character: There is no € in font cmtt10!
 Missing character: There is no ” in font cmtt10!
 Missing character: There is no â in font cmtt10!
 Missing character: There is no € in font cmtt10!
 Missing character: There is no ” in font cmtt10!
-) (./Persistent_tree.cpp [14]) (./convex_hull.cpp) (./myfft_module.cpp [15]) (.
-/complexfft_module.cpp)
-(./Find_Primitive_Root.cpp) [16]
+) (./Persistent_tree.cpp) (./convex_hull.cpp
+[16]) (./myfft_module.cpp) (./complexfft_module.cpp [17])
+(./Find_Primitive_Root.cpp)
 (/usr/share/texlive/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-(./Convex_hull_trick.java) (./Geometry_Module.cpp [17] [18]) (./gaussian.cpp)
-(./modular.cpp [19] [20]) (./2sat.cpp [21]) [22] (./codebook.aux)
+(./Convex_hull_trick.java [18]) (./Geometry_Module.cpp [19]) [20]
+(./gaussian.cpp) (./modular.cpp [21]) [22] (./2sat.cpp [23]) [24]
+(./codebook.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 0.5pt have occurred.
 
  ) 
 Here is how much of TeX's memory you used:
- 4715 strings out of 493029
- 63202 string characters out of 6136233
- 756135 words of memory out of 5000000
- 8137 multiletter control sequences out of 15000+600000
+ 4775 strings out of 493029
+ 63895 string characters out of 6136233
+ 712710 words of memory out of 5000000
+ 8191 multiletter control sequences out of 15000+600000
  12274 words of font info for 45 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  35i,14n,61p,553b,1688s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -357,10 +359,10 @@ s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on codebook.pdf (22 pages, 253601 bytes).
+Output written on codebook.pdf (24 pages, 263163 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
- 92 compressed objects within 1 object stream
+ 137 PDF objects out of 1000 (max. 8388607)
+ 96 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

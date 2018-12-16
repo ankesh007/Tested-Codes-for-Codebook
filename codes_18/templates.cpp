@@ -49,3 +49,10 @@ long exp(long a,long n){
 	}
 	return ans;
 }
+
+/*Finding Unique Elements
+*/
+sort(v.begin(), v.end());
+v.erase(unique(v.begin(), v.end()), v.end());
+alias c='g++ -std=c++14 -Wall -g -fomit-frame-pointer -s'
+alias e='./a.out'
