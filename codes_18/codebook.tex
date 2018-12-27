@@ -170,8 +170,19 @@ incident upon it and add it to the edge set.
 
 \subsection{Ordered Statistics} % Stanford
 \lstinputlisting[language=c++]{OrderedStatistics.cpp}
+
 \subsection{Persistent Tree} % Stanford
 \lstinputlisting[language=c++]{Persistent_tree.cpp}
+
+\subsection{Treap} % Stanford
+\lstinputlisting[language=c++]{treap.cpp}
+
+\subsection{Treap Text} 
+\textbf{Insert element.}
+Suppose we need to insert an element at position pos. We divide the treap into two parts, which correspond to arrays [0..pos-1] and [pos..sz]; to do this we call split (T, T1, T2, pos). Then we can combine tree T1 with the new vertex by calling merge (T1, T1, new\_item) (it is easy to see that all preconditions are met). Finally, we combine trees T1 and T2 back into T by calling merge (T, T1, T2).\\
+\textbf{Delete element.}
+This operation is even easier: find the element to be deleted T, perform merge of its children L and R, and replace the element T with the result of merge. In fact, element deletion in the implicit treap is exactly the same as in the regular treap.
+
 
 \section{Math}
 
