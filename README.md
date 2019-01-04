@@ -15,6 +15,6 @@ It generates a `codebook.pdf` in the corresponding folder. To add any code, step
 
 Team Name      | Year
 ---------------------
-bits_dont_lie  | 2018
-know_no_algo   | 2017
-logical_freaks | 2016
+bits_dont_lie  | 2018  
+know_no_algo   | 2017  
+logical_freaks | 2016  
