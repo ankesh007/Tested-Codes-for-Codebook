@@ -15,4 +15,4 @@ Team Name      | Year
 ---------------------
 bits_dont_lie  | 2018  
 know_no_algo   | 2017  
-logical_freaks | 2016  
+Logical-Freaks | 2016  
