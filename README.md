@@ -11,8 +11,6 @@ It generates a `codebook.pdf` in the corresponding folder. To add any code, step
 3. Recompile as mentioned above.
 ```
 
-## Some random facts:
-
 Team Name      | Year
 ---------------------
 bits_dont_lie  | 2018  
