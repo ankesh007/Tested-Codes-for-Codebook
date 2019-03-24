@@ -1,0 +1,264 @@
+% \date{\today}
+\date{}
+\title{\vspace{-1cm}Codebook- Ankesh Gupta}
+% Compiled and edited by Brian Bi
+\documentclass[9pt]{extarticle}
+\setlength{\parindent}{0.0in}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage[landscape,letterpaper,twoside=false,top=15mm,bottom=15mm,left=10mm,right=10mm]{geometry}
+\pagestyle{myheadings}
+\markright{}
+\usepackage{listings}
+\usepackage{color}
+\lstset{
+    tabsize=1,
+    basicstyle=\fontsize{8}{8}\ttfamily,
+    % basicstyle=\ttfamily\scriptsize,
+    %upquote=true,
+    aboveskip={1.5\baselineskip},
+    columns=fixed,
+    showstringspaces=false,
+    extendedchars=true,
+    breaklines=true,
+    prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+    frame=single,
+    rulecolor=\color[rgb]{0.75,0.75,0.75},
+    showtabs=false,
+    showspaces=false,
+    showstringspaces=false,
+    keywordstyle=\color[rgb]{0,0,1},
+    commentstyle=\color[rgb]{0.133,0.545,0.133},
+    stringstyle=\color[rgb]{0.627,0.126,0.941},
+}
+
+% \author{
+%   Ankesh Gupta, Ronak Agarwal, Anant Chhajwani  
+% }
+
+\begin{document}
+\maketitle
+% Disable balancing of columns on last page, which is ugly
+\begin{multicols*}{3}
+% Want compact table of contents, but normal spacing between paragraphs later on
+\setlength{\parskip}{0.0in}
+\tableofcontents
+\setlength{\parskip}{0.1in}
+% New codebook
+\section{Format}
+
+\subsection{Format c++} % Stanford
+\lstinputlisting[language=c++]{templates.cpp}
+\subsection{String Input c++} % Stanford
+\lstinputlisting[language=c++]{string_inp.cpp}
+
+% \subsection{Format c++} % Stanford
+% \lstinputlisting[language=c++]{Format.cpp}
+
+
+
+\section{Strings}
+
+\subsection{KMP} % Stanford
+\lstinputlisting[language=c++]{KMP.cpp}
+
+\subsection{AhoCohrasick} % Stanford
+\lstinputlisting[language=c++]{Aho_Cohrasick.cpp}
+
+\subsection{Manacher}
+\lstinputlisting[language=c++]{Manacher.cpp}
+
+\subsection{Suffix\_Array} % Stanford
+\lstinputlisting[language=c++]{SuffixArray.cpp}
+
+\subsection{Z algo} % Stanford
+\lstinputlisting[language=c++]{Z_algo.cpp}
+
+\subsection{Hashing} % Stanford
+\lstinputlisting[language=c++]{hash.cpp}
+
+
+
+\section{Trees}
+
+\subsection{Centroid Tree} % Stanford
+\lstinputlisting[language=c++]{centroid_tree.cpp}
+
+\subsection{Heavy Light Decomposition} % Stanford
+\lstinputlisting[language=c++]{heavy_light.cpp}
+
+\subsection{Heavy Light Trick} % Stanford
+\lstinputlisting[language=c++]{heavy_light_trick.cpp}
+
+\subsection{LCA} % Stanford
+\lstinputlisting[language=c++]{lca.cpp}
+
+% \subsection{LCA Tree} % Stanford
+% \lstinputlisting[language=c++]{lca_tree.cpp}
+
+\section{Graph and Matching, Flows}
+
+% \subsection{AP and Bridges} % Stanford
+% \lstinputlisting[language=c++]{bridges.cpp}
+
+\subsection{Euler Walk} % Stanford
+\lstinputlisting[language=c++]{euler.cpp}
+
+\subsection{Articulation Point Pseudo} % Stanford
+\lstinputlisting[language=c++]{Articulation_point.cpp}
+
+% \subsection{Bipartite Matching} % Stanford
+% \lstinputlisting[language=c++]{bipartite.cpp}
+
+\subsection{Ford Fulkerson} % Stanford
+\lstinputlisting[language=c++]{ford_fulkerson.cpp}
+
+\subsection{Max Bipartite Matching $O(EV)$} % Stanford
+\lstinputlisting[language=c++]{MaxBipartiteMatching.cpp}
+
+
+\subsection{Dinic- Maximum Flow $O(EV^2)$ } % Stanford
+\lstinputlisting[language=c++]{Dinic.cpp}
+
+\subsection{Minimum Cost Bipartite Matching $O(V^3)$ } % Stanford
+\lstinputlisting[language=c++]{min_cost_bipartite.cpp}
+
+\subsection{Minimum Cost Maximum Flow } % Stanford
+\lstinputlisting[language=c++]{min_cost_max_flow.cpp}
+
+\subsection{Push Relabel Max Flow($O(V^3)$ vs $O(V^2\sqrt{E})$)}
+\lstinputlisting[language=c++]{PushRelabel.cpp}
+
+\subsection{General Unweighted Maximum Matching (Edmonds' algorithm)}
+\lstinputlisting[language=c++]{general-matching.cpp}
+
+\subsection{K\"onig's Theorem (Text)} % Jacob Plachta and Brian Bi
+In any bipartite graph, the number of edges in a maximum matching equals the
+number of vertices in a minimum vertex cover. To exhibit the vertex cover:
+\begin{enumerate}
+\item Find a maximum matching
+\item Change each edge \textbf{used} in the matching into a directed edge from
+\textbf{right to left}
+\item Change each edge \textbf{not used} in the matching into a directed edge
+from \textbf{left to right}
+\item Compute the set $T$ of all vertices reachable from unmatched vertices on
+the left (including themselves)
+\item The vertex cover consists of all vertices on the right that are
+\textbf{in} $T$, and all vertices on the left that are \textbf{not in} $T$
+\end{enumerate}
+
+\subsection{Minimum Edge Cover (Text)} % Brian Bi
+If a minimum edge cover contains $C$ edges, and a maximum matching contains $M$
+edges, then $C + M = |V|$. To obtain the edge cover, start with a maximum
+matching, and then, for every vertex not matched, just select some edge
+incident upon it and add it to the edge set. 
+
+
+\section{Data Structures}
+
+% \subsection{Persistent Segment Tree} % Stanford
+% \lstinputlisting[language=c++]{Persistent_tree.cpp}
+
+% \subsection{BIT- Point Update + Range Sum} % Stanford
+% \lstinputlisting[language=c++]{BIT.cpp}
+
+\subsection{BIT- Range Update + Range Sum} % Stanford
+\lstinputlisting[language=c++]{BIT-range.cpp}
+
+\subsection{BIT- 2D} % Stanford
+\lstinputlisting[language=c++]{BIT_2D.cpp}
+
+\subsection{Ordered Statistics} % Stanford
+\lstinputlisting[language=c++]{OrderedStatistics.cpp}
+
+\subsection{Persistent Tree} % Stanford
+\lstinputlisting[language=c++]{Persistent_tree.cpp}
+
+\subsection{Treap} % Stanford
+\lstinputlisting[language=c++]{treap.cpp}
+
+\subsection{Treap Text} 
+\textbf{Insert element.}
+Suppose we need to insert an element at position pos. We divide the treap into two parts, which correspond to arrays [0..pos-1] and [pos..sz]; to do this we call split (T, T1, T2, pos). Then we can combine tree T1 with the new vertex by calling merge (T1, T1, new\_item) (it is easy to see that all preconditions are met). Finally, we combine trees T1 and T2 back into T by calling merge (T, T1, T2).\\
+\textbf{Delete element.}
+This operation is even easier: find the element to be deleted T, perform merge of its children L and R, and replace the element T with the result of merge. In fact, element deletion in the implicit treap is exactly the same as in the regular treap.
+
+
+\section{Math}
+
+\subsection{Convex Hull} % Stanford
+\lstinputlisting[language=c++]{convex_hull.cpp}
+
+\subsection{FFT} % Stanford
+\lstinputlisting[language=c++]{myfft_module.cpp}
+
+\subsection{FFT\_Complex} % Stanford
+\lstinputlisting[language=c++]{complexfft_module.cpp}
+
+\subsection{Find Primitive Root } % Stanford
+\lstinputlisting[language=c++]{Find_Primitive_Root.cpp}
+
+\subsection{Convex Hull Trick} % Stanford
+\lstinputlisting[language=Java]{Convex_hull_trick.java}
+
+
+\subsection{Miscellaneous Geometry} % Stanford
+\lstinputlisting[language=c++]{Geometry_Module.cpp}
+
+\subsection{Gaussian elimination for square matrices of full rank; finds
+inverses and determinants} % Stanford
+\lstinputlisting[language=c++]{gaussian.cpp}
+
+\section{Number Theory Reference}
+
+% \subsection{Fast factorization (Pollard rho) and primality testing
+% (Rabin--Miller)} % Qiyu Zhu
+% \lstinputlisting[language=c++]{pollard-rho.cpp}
+
+\subsection{Modular arithmetic and linear Diophantine solver} % Stanford
+\lstinputlisting[language=c++]{modular.cpp}
+
+\subsection{Polynomial Coefficients (Text)} % Brian Bi
+$(x_1 + x_2 + ... + x_k)^n = \sum_{c_1 + c_2 + ... + c_k = n}
+\frac{n!}{c_1! c_2! ... c_k!} x_1^{c_1} x_2^{c_2} ... x_k^{c_k}$
+
+\subsection{M\"obius Function (Text)} % Brian Bi
+$\mu(n) = \begin{cases}
+0 & \text{$n$ not squarefree} \\
+1 & \text{$n$ squarefree w/ even no. of prime factors} \\
+1 & \text{$n$ squarefree w/ odd no. of prime factors} \\
+\end{cases}$
+Note that $\mu(a) \mu(b) = \mu(ab)$ for $a, b$ relatively prime
+Also $\sum_{d \mid n} \mu(d) = \begin{cases} 1 & \text{if $n = 1$} \\
+0 & \text{otherwise} \end{cases}$
+
+\textbf{M\"obius Inversion}
+If $g(n) = \sum_{d|n} f(d)$ for all $n \ge 1$, then
+$f(n) = \sum_{d|n} \mu(d)g(n/d)$ for all $n \ge 1$.
+
+
+\subsection{Burnside's Lemma (Text)} % Wesley May and Brian Bi
+The number of orbits of a set $X$ under the group action $G$ equals the average
+number of elements of $X$ fixed by the elements of $G$.
+
+Here's an example. Consider a square of $2n$ times $2n$ cells. How many ways
+are there to color it into $X$ colors, up to rotations and/or reflections?
+Here, the group has only 8 elements (rotations by 0, 90, 180 and 270 degrees,
+reflections over two diagonals, over a vertical line and over a horizontal
+line). Every coloring stays itself after rotating by 0 degrees, so that
+rotation has $X^{4n^2}$ fixed points. Rotation by 180 degrees and reflections
+over a horizonal/vertical line split all cells in pairs that must be of the
+same color for a coloring to be unaffected by such rotation/reflection, thus
+there exist $X^{2n^2}$ such colorings for each of them. Rotations by 90 and 270
+degrees split cells in groups of four, thus yielding $X^{n^2}$ fixed colorings.
+Reflections over diagonals split cells into $2n$ groups of 1 (the diagonal
+itself) and $2n^2-n$ groups of 2 (all remaining cells), thus yielding
+$X^{2n^2-n+2n}=X^{2n^2+n}$ unaffected colorings.  So, the answer is
+$(X^{4n^2}+3X^{2n^2}+2X^{n^2}+2X^{2n^2+n})/8$.
+
+\section{Miscellaneous}
+\subsection{2-SAT} % Brian Bi
+\lstinputlisting[language=c++]{2sat.cpp}
+
+\end{multicols*}
+\end{document}
